@@ -79,13 +79,13 @@ THREEx.WebcamGrabbing = function(){
 		navigator.mediaDevices.enumerateDevices().then(function(sourceInfos) {
                 // define getUserMedia() constraints
                 var constraints = {
-                        video: {facingMode: "back"},
+                        video: {facingMode: "front"},
                         audio: false,
                 }
                 // to mirror the video element when it isnt 'environment'
                 // domElement.style.transform   = 'scaleX(-1)'
 				
-				alert("here 3");
+				alert("here 4");
 				/*
                 // it it finds the videoSource 'environment', modify constraints.video
                 for (var i = 0; i != sourceInfos.length; ++i) {
