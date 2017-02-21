@@ -89,16 +89,11 @@ THREEx.WebcamGrabbing = function(){
                 for (var i = 0; i != sourceInfos.length; ++i) {
                         var sourceInfo = sourceInfos[i];
 						
-						console.log(sourceInfo.kind + ": " + sourceInfo.label + " id = " + sourceInfo.deviceId);
-						alert(sourceInfo.kind + ": " + sourceInfo.label + " id = " + sourceInfo.deviceId);
-						
-                        if(sourceInfo.kind == "video" && sourceInfo.facing == "environment") {
+						if (sourceInfo.kind == "video" && sourceInfo.label.includes("back")) {
                                 constraints.video = {
                                         optional: [{sourceId: sourceInfo.id}]
                                 }
-                                // not to mirror the video element when it is 'environment'
-                                // domElement.style.transform   = ''
-                        }
+						}
                 }
 
                 // try to get user media
