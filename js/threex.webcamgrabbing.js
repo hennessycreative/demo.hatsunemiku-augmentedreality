@@ -89,7 +89,7 @@ THREEx.WebcamGrabbing = function(){
                 for (var i = 0; i != sourceInfos.length; ++i) {
                         var sourceInfo = sourceInfos[i];
 						
-						if (sourceInfo.kind == "video" && sourceInfo.label.includes("back")) {
+						if (sourceInfo.kind == "videoinput" && sourceInfo.label.includes("back")) {
                                 constraints.video = {
                                         optional: [{sourceId: sourceInfo.id}]
                                 }
