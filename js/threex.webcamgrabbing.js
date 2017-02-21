@@ -85,8 +85,7 @@ THREEx.WebcamGrabbing = function(){
                 // to mirror the video element when it isnt 'environment'
                 // domElement.style.transform   = 'scaleX(-1)'
 				
-				alert("here 9");
-				
+				//TODO back instead of env??
                 // it it finds the videoSource 'environment', modify constraints.video
                 for (var i = 0; i != sourceInfos.length; ++i) {
                         var sourceInfo = sourceInfos[i];
