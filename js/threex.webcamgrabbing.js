@@ -85,7 +85,7 @@ THREEx.WebcamGrabbing = function(){
                 // to mirror the video element when it isnt 'environment'
                 // domElement.style.transform   = 'scaleX(-1)'
 				
-				alert("here 8");
+				alert("here 9");
 				
                 // it it finds the videoSource 'environment', modify constraints.video
                 for (var i = 0; i != sourceInfos.length; ++i) {
@@ -96,10 +96,10 @@ THREEx.WebcamGrabbing = function(){
 						}
 						
 						if (sourceInfo.kind == "videoinput" && sourceInfo.label.includes("back")) {
-							alert("found "+sourceInfo.id);
+							alert("found "+sourceInfo.deviceId);
 							
 							constraints.video = {
-									optional: [{sourceId: sourceInfo.id}]
+									optional: [{sourceId: sourceInfo.deviceId}]
 							}
 						}
                 }
