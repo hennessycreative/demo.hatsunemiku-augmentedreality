@@ -79,24 +79,23 @@ THREEx.WebcamGrabbing = function(){
 		navigator.mediaDevices.enumerateDevices().then(function(sourceInfos) {
                 // define getUserMedia() constraints
                 var constraints = {
-                        video: { facingMode: "back" },
+                        video: true,
                         audio: false,
                 }
                 // to mirror the video element when it isnt 'environment'
                 // domElement.style.transform   = 'scaleX(-1)'
 				
-				alert("here 7");
+				alert("here 8");
 				
-				/*
                 // it it finds the videoSource 'environment', modify constraints.video
                 for (var i = 0; i != sourceInfos.length; ++i) {
                         var sourceInfo = sourceInfos[i];
 						
-						if (sourceInfo.kind == "videoinput" && !sourceInfo.label.includes("front")) {
+						if (sourceInfo.kind == "videoinput" && !sourceInfo.label.includes("back")) {
 							alert("video not match "+sourceInfo.label);
 						}
 						
-						if (sourceInfo.kind == "videoinput" && sourceInfo.label.includes("front")) {
+						if (sourceInfo.kind == "videoinput" && sourceInfo.label.includes("back")) {
 							alert("found "+sourceInfo.id);
 							
 							constraints.video = {
@@ -104,7 +103,6 @@ THREEx.WebcamGrabbing = function(){
 							}
 						}
                 }
-				*/
 				
                 // try to get user media
 				navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
