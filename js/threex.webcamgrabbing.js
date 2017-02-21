@@ -84,15 +84,23 @@ THREEx.WebcamGrabbing = function(){
                 }
                 // to mirror the video element when it isnt 'environment'
                 // domElement.style.transform   = 'scaleX(-1)'
+				
+				alert("here 0");
 
                 // it it finds the videoSource 'environment', modify constraints.video
                 for (var i = 0; i != sourceInfos.length; ++i) {
                         var sourceInfo = sourceInfos[i];
 						
+						if (sourceInfo.kind == "videoinput" && !sourceInfo.label.includes("back")) {
+							alert("video not match "+sourceInfo.label);
+						}
+						
 						if (sourceInfo.kind == "videoinput" && sourceInfo.label.includes("back")) {
-                                constraints.video = {
-                                        optional: [{sourceId: sourceInfo.id}]
-                                }
+							alert("found");
+							
+							constraints.video = {
+									optional: [{sourceId: sourceInfo.id}]
+							}
 						}
                 }
 
