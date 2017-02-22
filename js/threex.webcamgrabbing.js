@@ -84,20 +84,27 @@ THREEx.WebcamGrabbing = function(){
                 }
                 // to mirror the video element when it isnt 'environment'
                 // domElement.style.transform   = 'scaleX(-1)'
-
+				
+				//TODO back instead of env??
                 // it it finds the videoSource 'environment', modify constraints.video
                 for (var i = 0; i != sourceInfos.length; ++i) {
                         var sourceInfo = sourceInfos[i];
 						
-						if (sourceInfo.kind == "video" && sourceInfo.label.includes("back")) {
-                                constraints.video = {
-                                        optional: [{sourceId: sourceInfo.id}]
-                                }
+						if (sourceInfo.kind == "videoinput" && !sourceInfo.label.includes("back")) {
+							alert("video not match "+sourceInfo.label);
+						}
+						
+						if (sourceInfo.kind == "videoinput" && sourceInfo.label.includes("back")) {
+							alert("found "+sourceInfo.deviceId);
+							
+							constraints.video = {
+									optional: [{sourceId: sourceInfo.deviceId}]
+							}
 						}
                 }
-
+				
                 // try to get user media
-                navigator.getUserMedia( constraints, function(stream){
+				navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
                         domElement.src = URL.createObjectURL(stream);
                 }, function(error) {
                         console.error("Cant getUserMedia()! due to ", error);
